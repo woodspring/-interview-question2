@@ -22,9 +22,9 @@ public class NumberController {
 	@Qualifier("NumberService")
 	private NumberService numberSrv;
 	
-	@Autowired
-	@Qualifier("NumberH2Service")
-	private NumberService numberH2Srv;
+	//@Autowired
+	//@Qualifier("NumberH2Service")
+	//private NumberService numberH2Srv;
 	
 	@GetMapping("store")
 	public String storeNumbers(@RequestParam("numbers") String numbers) {
@@ -43,19 +43,19 @@ public class NumberController {
 	}
 
 	
-	@GetMapping("storeH2")
-	public String storeNumbersH2(@RequestParam("numbers") String numbers) {
-		int retI = numberH2Srv.storeNumber(numbers);
-		String retStr = Integer.valueOf( retI).toString();
-		logger.info("storeNumbersH2, numbers:{}, index:{}", numbers, retStr);
-		return retStr;
-		
-	}
-	
-	@GetMapping("permutationH2")
-	public List<Integer> getNumberH2(@RequestParam("id") int id) {
-		List<Integer> resList = numberH2Srv.getNumber(id);
-		logger.info("getNumberH2: numIndex:{}, resList:{}", id, resList);
-		return resList;
-	}
+//	@GetMapping("storeH2")
+//	public String storeNumbersH2(@RequestParam("numbers") String numbers) {
+//		int retI = numberH2Srv.storeNumber(numbers);
+//		String retStr = Integer.valueOf( retI).toString();
+//		logger.info("storeNumbersH2, numbers:{}, index:{}", numbers, retStr);
+//		return retStr;
+//		
+//	}
+//	
+//	@GetMapping("permutationH2")
+//	public List<Integer> getNumberH2(@RequestParam("id") int id) {
+//		List<Integer> resList = numberH2Srv.getNumber(id);
+//		logger.info("getNumberH2: numIndex:{}, resList:{}", id, resList);
+//		return resList;
+//	}
 }
